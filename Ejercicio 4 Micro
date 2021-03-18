@@ -33,30 +33,31 @@ inicio:
     call RETARDO2
     call RETARDO2
     call RETARDO2
-    nop
-    nop
-    nop
     ;verde apagar 
     bcf PORTB,0  ;poner el puerto B1 (bit 5 del puerto B) en 0
     call RETARDO3
     call RETARDO4
-    nop
-    nop
-    nop
     goto inicio
 ;rutina de tiempo
 RETARDO1:  
     nop	      ;NOPs de relleno (ajuste de tiempo)
-    movlw d'59' ;establecer valor de la variable i
+    nop
+    nop
+    movlw d'51' ;establecer valor de la variable i
     movwf i
 iloop:
     nop	      ;NOPs de relleno (ajuste de tiempo)
+    nop
+    nop
+    nop
     movlw d'50' ;establecer valor de la variable j
     movwf j
 jloop:	
     nop
+    nop
+    nop
     nop         ;NOPs de relleno (ajuste de tiempo)
-    movlw d'61' ;establecer valor de la variable k
+    movlw d'60' ;establecer valor de la variable k
     movwf k
 kloop:	
     
@@ -73,24 +74,24 @@ kloop:
     return	;salir de la rutina de tiempo y regresar al 
 		;valor de contador de programa 58
 RETARDO2:
-    MOVLW d'176' ;MUEVE 255 A W
+    MOVLW d'140' ;MUEVE 255 A W
     MOVWF timer2 ; MUEVE EL VALOR 255 A VARIABLE
     DECFSZ timer2 ;decrementa timer y pregunta hasta 0
     GOTO $-1 ; LOOP DE DECREMENTO
     return 
 RETARDO3: 
     nop	      ;NOPs de relleno (ajuste de tiempo)
-    movlw d'47' ;establecer valor de la variable i
+    movlw d'83' ;establecer valor de la variable i
     movwf i
 iloop2:
     nop	      ;NOPs de relleno (ajuste de tiempo)
-    movlw d'50' ;establecer valor de la variable j
+    movlw d'40' ;establecer valor de la variable j
     movwf j
 jloop2:	
     nop         ;NOPs de relleno (ajuste de tiempo)
     nop
     nop
-    movlw d'60' ;establecer valor de la variable k
+    movlw d'50' ;establecer valor de la variable k
     movwf k
 kloop2:	
     decfsz k,f  
@@ -106,9 +107,9 @@ kloop2:
     return	;salir de la rutina de tiempo y regresar al 
 		;valor de contador de programa 58}
 RETARDO4:
-    MOVLW d'95' ;MUEVE 255 A W
+    MOVLW d'5' ;MUEVE 255 A W
     MOVWF timer2 ; MUEVE EL VALOR 255 A VARIABLE
     DECFSZ timer2 ;decrementa timer y pregunta hasta 0
     GOTO $-1 ; LOOP DE DECREMENTO
     return 
-    END
+    END 
